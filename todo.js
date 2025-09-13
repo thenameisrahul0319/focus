@@ -167,6 +167,12 @@ class TodoApp {
         const timeBtn = document.getElementById('timeBtn');
         const timeModal = document.getElementById('timeModal');
         const closeTime = document.getElementById('closeTime');
+        const categoryBtn = document.getElementById('categoryBtn');
+        const priorityBtn = document.getElementById('priorityBtn');
+        const categoryModal = document.getElementById('categoryModal');
+        const priorityModal = document.getElementById('priorityModal');
+        const saveCategoryBtn = document.getElementById('saveCategoryBtn');
+        const savePriorityBtn = document.getElementById('savePriorityBtn');
 
         addBtn.addEventListener('click', () => this.addTask());
         taskInput.addEventListener('keypress', (e) => {
@@ -220,6 +226,47 @@ class TodoApp {
             }
         });
 
+        // Category and Priority selection events
+        categoryBtn.addEventListener('click', () => {
+            categoryModal.style.display = 'block';
+        });
+
+        priorityBtn.addEventListener('click', () => {
+            priorityModal.style.display = 'block';
+        });
+
+        categoryModal.addEventListener('click', (e) => {
+            if (e.target === categoryModal) {
+                categoryModal.style.display = 'none';
+            }
+        });
+
+        priorityModal.addEventListener('click', (e) => {
+            if (e.target === priorityModal) {
+                priorityModal.style.display = 'none';
+            }
+        });
+
+        saveCategoryBtn.addEventListener('click', () => {
+            const selectedCategory = document.querySelector('input[name="category"]:checked');
+            if (selectedCategory) {
+                const categoryText = selectedCategory.value.charAt(0).toUpperCase() + selectedCategory.value.slice(1);
+                categoryBtn.querySelector('span').textContent = categoryText;
+                categoryBtn.dataset.selected = selectedCategory.value;
+            }
+            categoryModal.style.display = 'none';
+        });
+
+        savePriorityBtn.addEventListener('click', () => {
+            const selectedPriority = document.querySelector('input[name="priority"]:checked');
+            if (selectedPriority) {
+                const priorityText = selectedPriority.value.charAt(0).toUpperCase() + selectedPriority.value.slice(1);
+                priorityBtn.querySelector('span').textContent = priorityText;
+                priorityBtn.dataset.selected = selectedPriority.value;
+            }
+            priorityModal.style.display = 'none';
+        });
+
         // Listen for messages from iframes
         window.addEventListener('message', (e) => {
             if (e.data.type === 'dateSelected') {
@@ -248,8 +295,8 @@ class TodoApp {
         const taskDescription = document.getElementById('taskDescription');
         const taskDueDate = document.getElementById('taskDueDate');
         const taskDueTime = document.getElementById('taskDueTime');
-        const categorySelect = document.getElementById('categorySelect');
-        const prioritySelect = document.getElementById('prioritySelect');
+        const categoryBtn = document.getElementById('categoryBtn');
+        const priorityBtn = document.getElementById('priorityBtn');
 
         const text = taskInput.value.trim();
         if (!text) return;
@@ -266,8 +313,8 @@ class TodoApp {
             text,
             description: taskDescription.value.trim(),
             dueDate: dueDateTime,
-            category: categorySelect.value,
-            priority: prioritySelect.value,
+            category: categoryBtn.dataset.selected,
+            priority: priorityBtn.dataset.selected,
             completed: false,
             notified: false,
             createdAt: Date.now()
