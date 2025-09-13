@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.timepicker-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 320px;
+    width: 100%;
+}
+
+.timepicker-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timepicker-header h3 {
+    color: #4c51bf;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.time-display {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    color: white;
+}
+
+.time-display span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.time-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-section label {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.time-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.time-btn {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+
+.time-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.time-input input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    background: #f7fafc;
+}
+
+.time-input input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+}
+
+.time-separator {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin: 0 5px;
+}
+
+.ampm-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.ampm-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ampm-btn {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    transition: all 0.2s ease;
+    min-width: 45px;
+}
+
+.ampm-btn:hover {
+    border-color: #667eea;
+    background: #ebf4ff;
+}
+
+.ampm-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.timepicker-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+}
+
+.action-btn.cancel {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+}
+
+.action-btn.cancel:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+.action-btn.confirm {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.action-btn.confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}

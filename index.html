@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-check-circle"></i>
+                    Focus Flow
+                </h1>
+                <p class="motivational-quote">Transform your dreams into achievements, one task at a time</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="highlights-section">
+                <h2><i class="fas fa-star"></i> Today's Highlights</h2>
+                <div class="highlight-cards">
+                    <div class="highlight-card">
+                        <span class="highlight-number">3</span>
+                        <span class="highlight-label">Tasks Completed</span>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="highlight-number">5</span>
+                        <span class="highlight-label">Remaining</span>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="highlight-number">2</span>
+                        <span class="highlight-label">High Priority</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-task-section">
+                <div class="add-task-form">
+                    <input type="text" id="taskInput" placeholder="What would you like to accomplish today?" class="task-input">
+                    <textarea id="taskDescription" placeholder="Add description (optional)" class="task-description"></textarea>
+                    <div class="form-row">
+                        <input type="date" id="taskDueDate" class="task-due-date" title="Select due date">
+                        <button type="button" id="calendarBtn" class="calendar-btn" title="Open Calendar">
+                            <i class="fas fa-calendar-alt"></i>
+                        </button>
+                        <input type="text" id="taskDueTime" class="task-due-time" placeholder="Select time" readonly title="Select due time">
+                        <button type="button" id="timeBtn" class="time-btn" title="Open Time Picker">
+                            <i class="fas fa-clock"></i>
+                        </button>
+                        <select id="categorySelect" class="category-select">
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                            <option value="goals">Goals</option>
+                        </select>
+                        <select id="prioritySelect" class="priority-select">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button id="addTaskBtn" class="add-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tasks-section">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All Tasks</button>
+                    <button class="filter-btn" data-category="active">
+                        <i class="fas fa-play"></i> Active
+                    </button>
+                    <button class="filter-btn" data-category="work">
+                        <i class="fas fa-briefcase"></i> Work
+                    </button>
+                    <button class="filter-btn" data-category="personal">
+                        <i class="fas fa-user"></i> Personal
+                    </button>
+                    <button class="filter-btn" data-category="goals">
+                        <i class="fas fa-target"></i> Goals
+                    </button>
+                    <button class="filter-btn" data-category="completed">
+                        <i class="fas fa-check"></i> Completed
+                    </button>
+                </div>
+
+                <div class="tasks-container" id="tasksContainer">
+                    <!-- Sample tasks -->
+                    <div class="task-item" data-category="work" data-priority="high">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task1">
+                            <label for="task1" class="checkbox-custom"></label>
+                        </div>
+                        <div class="task-content">
+                            <span class="task-text">Complete project presentation</span>
+                            <div class="task-meta">
+                                <span class="task-category work">Work</span>
+                                <span class="task-priority high">High Priority</span>
+                            </div>
+                        </div>
+                        <button class="delete-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="task-item" data-category="personal" data-priority="medium">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task2">
+                            <label for="task2" class="checkbox-custom"></label>
+                        </div>
+                        <div class="task-content">
+                            <span class="task-text">Call mom for her birthday</span>
+                            <div class="task-meta">
+                                <span class="task-category personal">Personal</span>
+                                <span class="task-priority medium">Medium Priority</span>
+                            </div>
+                        </div>
+                        <button class="delete-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="task-item" data-category="goals" data-priority="high">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task3">
+                            <label for="task3" class="checkbox-custom"></label>
+                        </div>
+                        <div class="task-content">
+                            <span class="task-text">Read 30 minutes of personal development</span>
+                            <div class="task-meta">
+                                <span class="task-category goals">Goals</span>
+                                <span class="task-priority high">High Priority</span>
+                            </div>
+                        </div>
+                        <button class="delete-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div id="calendarModal" class="calendar-modal">
+        <div class="calendar-modal-content">
+            <div class="calendar-modal-header">
+                <h3>Select Date</h3>
+                <button class="close-calendar" id="closeCalendar">&times;</button>
+            </div>
+            <iframe src="calender/calendar.html" class="calendar-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Time Picker Modal -->
+    <div id="timeModal" class="calendar-modal">
+        <div class="calendar-modal-content">
+            <div class="calendar-modal-header">
+                <h3>Select Time</h3>
+                <button class="close-time" id="closeTime">&times;</button>
+            </div>
+            <iframe src="timepicker/timepicker.html" class="time-iframe"></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Created by Rahul Rajare</p>
+        <p>© 2025 Focus Flow All rights reserved</p>
+    </footer>
+
+    <script src="todo.js"></script>
+</body>
+</html>

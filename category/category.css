@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.new-task-container {
+    background: white;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: absolute;
+    left: 20px;
+}
+
+.close-btn:hover {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: center;
+    width: 100%;
+}
+
+.task-form {
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: calc(100vh - 80px);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 18px 20px;
+    background-color: #f0f9ff;
+    border: 2px solid #e0f2fe;
+    border-radius: 16px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #1e293b;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #7dd3fc;
+    font-weight: 400;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237dd3fc' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 16px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+.form-select option {
+    background-color: white;
+    color: #1e293b;
+    padding: 12px;
+}
+
+.form-select option:disabled {
+    color: #7dd3fc;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.create-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.create-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+}
+
+.create-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .header {
+        padding: 16px 20px;
+    }
+    
+    .task-form {
+        padding: 24px 20px 20px;
+        gap: 20px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 16px 18px;
+        font-size: 16px;
+    }
+    
+    .title {
+        font-size: 22px;
+    }
+    
+    .create-btn {
+        padding: 18px;
+        font-size: 17px;
+    }
+}

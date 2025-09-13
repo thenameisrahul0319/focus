@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Picker</title>
+    <link rel="stylesheet" href="timepicker.css">
+</head>
+<body>
+    <div class="timepicker-container">
+        <div class="timepicker-header">
+            <h3>Select Time</h3>
+        </div>
+        
+        <div class="time-display">
+            <span id="timeDisplay">12:00 PM</span>
+        </div>
+        
+        <div class="time-controls">
+            <div class="time-section">
+                <label>Hour</label>
+                <div class="time-input">
+                    <button class="time-btn" id="hourUp">▲</button>
+                    <input type="number" id="hourInput" min="1" max="12" value="12" readonly>
+                    <button class="time-btn" id="hourDown">▼</button>
+                </div>
+            </div>
+            
+            <div class="time-separator">:</div>
+            
+            <div class="time-section">
+                <label>Minute</label>
+                <div class="time-input">
+                    <button class="time-btn" id="minuteUp">▲</button>
+                    <input type="number" id="minuteInput" min="0" max="59" value="0" readonly>
+                    <button class="time-btn" id="minuteDown">▼</button>
+                </div>
+            </div>
+            
+            <div class="ampm-section">
+                <label>Period</label>
+                <div class="ampm-toggle">
+                    <button class="ampm-btn active" id="amBtn">AM</button>
+                    <button class="ampm-btn" id="pmBtn">PM</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timepicker-actions">
+            <button class="action-btn cancel" id="cancelBtn">Cancel</button>
+            <button class="action-btn confirm" id="confirmBtn">Confirm</button>
+        </div>
+    </div>
+    
+    <script src="timepicker.js"></script>
+</body>
+</html>
