@@ -52,16 +52,14 @@
                         <button type="button" id="timeBtn" class="time-btn" title="Open Time Picker">
                             <i class="fas fa-clock"></i>
                         </button>
-                        <select id="categorySelect" class="category-select">
-                            <option value="work">Work</option>
-                            <option value="personal">Personal</option>
-                            <option value="goals">Goals</option>
-                        </select>
-                        <select id="prioritySelect" class="priority-select">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
+                        <button type="button" id="categoryBtn" class="selection-btn" data-selected="work">
+                            <span>Work</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <button type="button" id="priorityBtn" class="selection-btn" data-selected="medium">
+                            <span>Medium</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                         <button id="addTaskBtn" class="add-btn">
                             <i class="fas fa-plus"></i>
                         </button>
@@ -165,6 +163,68 @@
                 <button class="close-time" id="closeTime">&times;</button>
             </div>
             <iframe src="timepicker/timepicker.html" class="time-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Category Selection Modal -->
+    <div id="categoryModal" class="selection-modal">
+        <div class="selection-modal-content">
+            <h2 class="selection-title">Category</h2>
+            <div class="radio-cards">
+                <label class="radio-card">
+                    <input type="radio" name="category" value="work" checked>
+                    <div class="card-content">
+                        <span class="card-label">Work</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="category" value="personal">
+                    <div class="card-content">
+                        <span class="card-label">Personal</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="category" value="goals">
+                    <div class="card-content">
+                        <span class="card-label">Goals</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+            </div>
+            <button class="save-btn" id="saveCategoryBtn">Save</button>
+        </div>
+    </div>
+
+    <!-- Priority Selection Modal -->
+    <div id="priorityModal" class="selection-modal">
+        <div class="selection-modal-content">
+            <h2 class="selection-title">Priority</h2>
+            <div class="radio-cards">
+                <label class="radio-card">
+                    <input type="radio" name="priority" value="low">
+                    <div class="card-content">
+                        <span class="card-label">Low</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="priority" value="medium" checked>
+                    <div class="card-content">
+                        <span class="card-label">Medium</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="priority" value="high">
+                    <div class="card-content">
+                        <span class="card-label">High</span>
+                        <div class="radio-indicator"></div>
+                    </div>
+                </label>
+            </div>
+            <button class="save-btn" id="savePriorityBtn">Save</button>
         </div>
     </div>
 
